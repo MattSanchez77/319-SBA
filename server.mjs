@@ -2,27 +2,28 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import books from './utilities/bookData.mjs';
-import movies from './utilities/movieData.mjs'
+import movies from './utilities/movieData.mjs';
+import { globalError } from './middleware/errorMiddleware.mjs';
 
 
 
 
 
 // Setups
-dotenv.config()
-const app = express()
-const PORT = process.env.PORT || 3001
+dotenv.config();
+const app = express();
+const PORT = process.env.PORT || 3001;
 
 
 // Middleware
-app.use(express.json())
+app.use(express.json());
 
 
 // Routes
 
 
 // Err handling middleware
-
+app.use(globalError);
 
 // Listener
 app.listen(PORT, () => {
