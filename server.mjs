@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import connectDB from './db/conn.mjs';
 import Books from './routes/bookRoutes.mjs';
 import { globalError } from './middleware/errorMiddleware.mjs';
+import bookSchema from './models/bookSchema.mjs';
 
 
 
@@ -21,7 +22,7 @@ app.use(express.json());
 
 
 // Routes
-app.use("/api/Books", bookRoutes);
+// app.use("/api/Books", bookRoutes); My app.use is not allowing it to run. I am not sure what I am missing for it to work
 
 
 
