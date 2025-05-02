@@ -1,5 +1,6 @@
 import express from "express";
-import books from "../models/bookSchema.mjs";
+import Books from "../models/bookSchema.mjs"
+
 
 
 const router = express.Router();
@@ -7,7 +8,7 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
 
-    const newBook = await books.create(req.body);
+    const newBook = await Books.create(req.body);
 
     res.json(newBook);
 });
@@ -15,7 +16,7 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
 
-    const allBooks = await books.find({});
+    const allBooks = await Books.find({});
 
 
     res.json(allBooks);
@@ -24,7 +25,7 @@ router.get('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
 
-    const editBook = await books.findByIdAndUpdate(req.params.id, req.body, {
+    const editBook = await Books.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
     });
 
@@ -37,7 +38,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
 
-    const deleteBook = await books.findByIdAndDelete(req.params.id);
+    const deleteBook = await Books.findByIdAndDelete(req.params.id);
 
     if (!deleteBook) res.status(400).json({ msg: 'Book not found' });
 

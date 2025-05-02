@@ -1,9 +1,8 @@
 // Imports
 import express from 'express';
 import dotenv from 'dotenv';
-
-import books from './utilities/bookData.mjs';
-import movies from './utilities/movieData.mjs';
+import connectDB from './db/conn.mjs';
+import Books from './routes/bookRoutes.mjs';
 import { globalError } from './middleware/errorMiddleware.mjs';
 
 
