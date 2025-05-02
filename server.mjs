@@ -23,8 +23,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/Books", bookRoutes);
-app.use("/api/Books", bookRoutes);
-app.use("/api/", bookRoutes);
+
 
 
 // Err handling middleware
